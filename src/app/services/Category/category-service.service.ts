@@ -16,4 +16,19 @@ export class CategoryServiceService {
 
     return this.httpClient.get<Category[]>(API+"AllCategory");
   }
+
+  addCategory(category:Category):Observable<Category>{
+    return this.httpClient.post<Category>(API+"addCategory",category);
+  }
+
+
+  updateCategory(category:Category,id:number):Observable<Category>{
+    return this.httpClient.post<Category>(API+"updateCategory/"+id,category);
+  }
+
+
+  getCategoryById(id:number):Observable<Category>{
+
+    return this.httpClient.get<Category>(API+"CategoryById/"+id);
+  }
 }

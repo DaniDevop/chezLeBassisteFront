@@ -1,7 +1,9 @@
-export interface Category{
+export class Category{
 
-  category:string
-  id:number
+  category!:string
+  id!:number
+  created_at!:string
+  updated_at!:string
 }
 
 export class Product {
