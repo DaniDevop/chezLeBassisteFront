@@ -30,7 +30,7 @@ export class ProductServiceService {
     formData.append("designation",product.designation);
     formData.append("price",product.price.toString());
     formData.append("stock",product.stock.toString());
-    //formData.append("category_id",product.category_id.toString());
+    formData.append("category_id",product.category_id.toString());
     formData.append("description",product.description);
       if(imageOne){
         formData.append("image_1",imageOne);
@@ -53,7 +53,7 @@ export class ProductServiceService {
     formData.append("designation",product.designation);
     formData.append("price",product.price.toString());
     formData.append("stock",product.stock.toString());
-    //formData.append("category_id",product.category_id.toString());
+    formData.append("category_id",product.category_id.toString());
     formData.append("description",product.description);
       if(imageOne){
         formData.append("image_1",imageOne);

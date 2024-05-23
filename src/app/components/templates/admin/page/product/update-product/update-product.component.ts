@@ -23,7 +23,7 @@ export class UpdateProductComponent {
 
   imagethird ?: File  // Variable to store file
   product!:Product
-  categoryList:Category[]=[]
+  categorytList:Category[]=[]
 
   constructor(private productService:ProductServiceService,private route:ActivatedRoute,
     private location:Location,private categoryService:CategoryServiceService){
@@ -31,7 +31,7 @@ export class UpdateProductComponent {
     this.productService.getProduitById(id).subscribe(product=>this.product=product)
     this.categoryService.getAllCategory().subscribe((data=>{
 
-      this.categoryList=data
+      this.categorytList=data
     }))
   }
 
@@ -69,6 +69,7 @@ export class UpdateProductComponent {
   submit(){
     this.productService.updateProduct(this.product,this.imageOne,this.imageTwo,this.imagethird)
     .subscribe((data=>{
+      console.log(data)
       window.alert("Produit mise a jour avec succès")
     }))
  }

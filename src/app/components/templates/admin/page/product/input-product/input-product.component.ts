@@ -4,6 +4,7 @@ import { Category, Product } from '../../../../../../models/data';
 import { NgFor, Location } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProductServiceService } from '../../../../../../services/Product/product-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-input-product',
@@ -21,15 +22,18 @@ export class InputProductComponent {
 
   imagethird ?: File  // Variable to store file
 
-  categoryList:Category[]=[]
-  product= new Product()
 
-  constructor(private categoryService:CategoryServiceService,private productService:ProductServiceService,private location:Location) {
+  product= new Product()
+  categorytList: Category[] = [];
+  constructor(private categoryService:CategoryServiceService,private productService:ProductServiceService,private router:Router) {
 
     this.categoryService.getAllCategory().subscribe((data=>{
 
-      console.log(this.categoryList=data)
+      console.log(this.categorytList=data)
+
     }))
+
+
   }
 
   onChange(event: any) {
@@ -59,10 +63,11 @@ export class InputProductComponent {
   }
 
   goBack(){
-    this.location.back()
+    this.router.navigate(['/listesProduct'])
   }
 
   submit(){
+    console.log(this.product);
      this.productService.addProduct(this.product,this.imageOne,this.imageTwo,this.imagethird)
      .subscribe({
 
